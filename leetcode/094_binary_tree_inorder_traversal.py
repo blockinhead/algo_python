@@ -28,3 +28,18 @@ class Solution:
                 node = node.right
 
         return res
+
+
+class RecurentSolution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        res = []
+
+        def dive(node):
+            if not node:
+                return
+            dive(node.left)
+            res.append(node.val)
+            dive(node.right)
+
+        dive(root)
+        return res
